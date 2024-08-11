@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="grid md:grid-cols-[auto_40%] grid-cols-1">
-      <main className="flex min-h-screen flex-wrap justify-between items-start p-10 w-full">
+      <main className="flex min-h-screen flex-wrap md:justify-start justify-center gap-1 items-start md:p-10 p-2 w-full">
         {products.map((product) => (
           <ItemCard
             productName={product.productName}

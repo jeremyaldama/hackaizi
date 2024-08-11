@@ -3,6 +3,7 @@ import Pasarela from "@/components/dashboard/pasarela";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
 import { useState } from "react";
 
 function Page() {
@@ -14,7 +15,12 @@ function Page() {
       {!pagado && <Pasarela setPagado={setPagado} />}
       {pagado && (
         <div className="w-full max-w-2xl mx-auto p-4 space-y-6">
-          <h1 className="text-2xl font-bold">¡Gracias por tu pedido!</h1>
+          <div className="flex justify-center">
+            <h1 className="text-2xl font-bold">¡Gracias por tu pedido!</h1>
+          </div>
+          <div className="flex justify-center">
+            <Image src="/boleta.jpeg" width={300} height={300} alt="Boleta" />
+          </div>
           <p>
             Tu pedido está siendo procesado.{" "}
             <strong>

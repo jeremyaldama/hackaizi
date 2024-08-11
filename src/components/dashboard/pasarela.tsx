@@ -86,12 +86,10 @@ export default function Pasarela({ setPagado }) {
               </h2>
               <div className="flex items-center justify-between">
                 <Image
-                  src="/placeholder.svg"
+                  src="https://cdn.tictuk.com/fbaba5c6-70cb-d548-0aa1-915f89e4a48c/assets/logoDesktopHeader.svg"
                   alt="KFC Logo"
-                  className="h-12"
                   width="50"
                   height="50"
-                  style={{ aspectRatio: "50/50", objectFit: "cover" }}
                 />
                 <div className="text-right">
                   <p className="text-sm">Número de pedido</p>
@@ -176,12 +174,10 @@ export default function Pasarela({ setPagado }) {
               <h2 className="text-xl font-bold">PAGA CON YAPE O PLIN</h2>
               <div className="flex items-center justify-between">
                 <Image
-                  src="/placeholder.svg"
+                  src="https://cdn.tictuk.com/fbaba5c6-70cb-d548-0aa1-915f89e4a48c/assets/logoDesktopHeader.svg"
                   alt="KFC Logo"
-                  className="h-12"
-                  width="500"
-                  height="500"
-                  style={{ aspectRatio: "50/50", objectFit: "cover" }}
+                  width="50"
+                  height="50"
                 />
                 <div className="text-right">
                   <p className="text-sm">Número de pedido</p>
@@ -192,13 +188,18 @@ export default function Pasarela({ setPagado }) {
                 Escanea el código QR para realizar el pago
               </p>
               <div className="flex items-center justify-center">
-                <Image
-                  src="/yape.jpeg"
-                  alt="KFC Logo"
-                  width="300"
-                  height="300"
-                />
+                <Image src="/yape.jpeg" alt="Yape" width="300" height="300" />
               </div>
+              <Button
+                className="w-full bg-primary text-primary-foreground"
+                onClick={() => setPagado(true)}
+              >
+                Pagar S/.{" "}
+                {productsInCart.reduce((acc, product) => {
+                  console.log("product", product);
+                  return acc + product.productPrice * product.productQty;
+                }, 0)}
+              </Button>
             </div>
           </div>
         )}

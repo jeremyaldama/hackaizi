@@ -1,9 +1,5 @@
 "use client";
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/4m48HKpv4Te
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -13,7 +9,7 @@ import { useState } from "react";
 import { useProducts } from "@/context/ProductsContext";
 import ResumenCard from "./resumenCard";
 
-export default function Pasarela() {
+export default function Pasarela({ setPagado }) {
   const { productsInCart, setProductsInCart } = useProducts();
   const [paymentMethod, setPaymentMethod] = useState("Pago en Linea");
   return (
@@ -73,9 +69,9 @@ export default function Pasarela() {
                 <RadioGroupItem value="Pago en Linea" id="online" />
                 <Label htmlFor="online" className="flex items-center space-x-2">
                   <CreditCardIcon className="h-6 w-6" />
-                  <span>PAGO EN LÍNEA</span>
+                  <span>Pago en Línea</span>
                   <span className="text-sm text-muted-foreground">
-                    Debit & Credit
+                    Debito y Crédito
                   </span>
                 </Label>
               </div>
@@ -157,16 +153,21 @@ export default function Pasarela() {
                 </div>
               </div>
             </div>
-            <Button className="w-full bg-primary text-primary-foreground">
-              Pagar S/.{" "}
-              {productsInCart.reduce((acc, product) => {
-                console.log("product", product);
-                return acc + product.productPrice * product.productQty;
-              }, 0)}
-            </Button>
-            <p className="text-center text-sm text-muted-foreground">
-              POWERED BY izipay
-            </p>
+            <div className="mt-5">
+              <Button
+                className="w-full bg-primary text-primary-foreground"
+                onClick={() => setPagado(true)}
+              >
+                Pagar S/.{" "}
+                {productsInCart.reduce((acc, product) => {
+                  console.log("product", product);
+                  return acc + product.productPrice * product.productQty;
+                }, 0)}
+              </Button>
+              <p className="text-center text-sm text-muted-foreground">
+                POWERED BY izipay
+              </p>
+            </div>
           </div>
         )}
         {paymentMethod === "Yape / Plin" && (

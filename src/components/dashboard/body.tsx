@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 function Body({ children }) {
   return (
     <ProductsProvider>
-      <body className={`${inter.className} bg-white`}>
-        <header className="flex items-center justify-center bg-background h-20">
+      <body className={inter.className}>
+        <header className="flex items-center justify-center h-20 bg-marca">
           <Image
             src={
               "https://iziweb001b.s3.amazonaws.com/webresources/img/logo.png"

@@ -81,7 +81,6 @@ export default function ItemCard({
         </CardContent>
         <CardFooter className="flex justify-center">
           <Button
-            className="bg-background"
             onClick={() => {
               setProductsInCart((productsInCart) => {
                 const productIndex = productsInCart.findIndex(

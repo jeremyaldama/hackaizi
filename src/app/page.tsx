@@ -35,7 +35,7 @@ export default function Home() {
   const { productsInCart, setProductsInCart } = useProducts();
 
   return (
-    <div className="grid grid-cols-[auto_40%]">
+    <div className="grid md:grid-cols-[auto_40%] grid-cols-1">
       <main className="flex min-h-screen flex-wrap justify-between items-start p-10 w-full">
         {products.map((product) => (
           <ItemCard

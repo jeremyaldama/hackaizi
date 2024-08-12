@@ -26,7 +26,7 @@ function Page() {
     return <h1 className="text-2xl font-bold">No hay órdenes por atender</h1>;
   }
   return (
-    <div>
+    <div className="flex flex-wrap gap-2 p-4">
       {ordenes.map((orden) => {
         console.log("ORDEN", orden);
         return <ContainerResDash orden={orden} key={orden.id} />;

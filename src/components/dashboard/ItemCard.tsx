@@ -22,6 +22,7 @@ export default function ItemCard({
   productImage,
   productPrice,
   productDescription,
+  productId,
   setProductsInCart,
 }) {
   const [qty, setQty] = useState(1);
@@ -98,6 +99,7 @@ export default function ItemCard({
                       productPrice,
                       productQty: qty,
                       productDescription,
+                      id: productId,
                     },
                   ];
               });

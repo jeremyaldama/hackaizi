@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useProducts } from "@/context/ProductsContext";
 import ResumenCard from "./resumenCard";
+import { writeOrden } from "@/lib/orden";
 
 export default function Pasarela({ setPagado }) {
   const { productsInCart, setProductsInCart } = useProducts();
@@ -154,7 +155,15 @@ export default function Pasarela({ setPagado }) {
             <div className="mt-5">
               <Button
                 className="w-full bg-primary text-primary-foreground"
-                onClick={() => setPagado(true)}
+                onClick={() => {
+                  const objetoDeObjetos = productsInCart.reduce((acc, obj) => {
+                    acc[obj.id] = obj;
+                    return acc;
+                  }, {});
+                  objetoDeObjetos["id"] = Date.now();
+                  writeOrden(objetoDeObjetos);
+                  setPagado(true);
+                }}
               >
                 Pagar S/.{" "}
                 {productsInCart.reduce((acc, product) => {

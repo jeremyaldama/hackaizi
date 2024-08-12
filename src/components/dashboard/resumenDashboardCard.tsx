@@ -37,17 +37,6 @@ export default function ResumenCardDash({
         <p>{productDescription}</p>
       </div>
       <div className="flex items-center justify-between mt-4 border-t pt-2">
-        <Button
-          size="icon"
-          variant="ghost"
-          onClick={() => {
-            setProductsInCart((prev) =>
-              prev.filter((product) => product.productName !== productName)
-            );
-          }}
-        >
-          <TrashIcon className="w-5 h-5 text-muted-foreground" />
-        </Button>
         <span className="text-lg font-bold">
           Subtotal: S/.{productPrice * productQty}
         </span>
